@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VasarMAUI.NextEvents"
+             Title="Közelgő"
+             Appearing="ContentPage_Appearing">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="dateTemplate">
+                <TextCell Text="{Binding ., StringFormat='{}{0:yyyy MMMM dd}'}" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+            </DataTemplate>
+            <Thickness x:Key="margin">3</Thickness>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0"
+            Text="Kistelek"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" 
+            Margin="{StaticResource margin}"/>
+        <ListView Grid.Row="0" Grid.Column="1" ItemsSource="{Binding KistelekDates}" SelectionMode="None" ItemTemplate="{StaticResource dateTemplate}" Margin="{StaticResource margin}"/>
+
+        <BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="1" BackgroundColor="LightGrey"/>
+
+        <Label Grid.Row="2" Grid.Column="0"
+            Text="Dorozsma"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" 
+            Margin="{StaticResource margin}"/>
+        <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding DorozsmaDates}" SelectionMode="None" ItemTemplate="{StaticResource dateTemplate}" Margin="{StaticResource margin}"/>
+
+        <BoxView Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="1" BackgroundColor="LightGrey"/>
+
+        <Label Grid.Row="4" Grid.Column="0"
+            Text="Mórahalom"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start"
+            Margin="{StaticResource margin}"/>
+        <ListView Grid.Row="4" Grid.Column="1" ItemsSource="{Binding MorahalomDates}" SelectionMode="None" ItemTemplate="{StaticResource dateTemplate}" Margin="{StaticResource margin}"/>
+
+        <BoxView Grid.Row="5" Grid.ColumnSpan="2" HeightRequest="1" BackgroundColor="LightGrey"/>
+
+        <Label Grid.Row="6" Grid.Column="0"
+            Text="Ruzsa"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start"
+            Margin="{StaticResource margin}"/>
+        <ListView Grid.Row="6" Grid.Column="1" ItemsSource="{Binding RuzsaDates}" SelectionMode="None" ItemTemplate="{StaticResource dateTemplate}" Margin="{StaticResource margin}"/>
+
+    </Grid>
+</ContentPage>
