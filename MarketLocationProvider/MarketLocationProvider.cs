@@ -24,7 +24,7 @@ namespace MarketLocationProvider
 
         public string GetMarketLocation()
         {
-            var currentDate = _dateTimeProvider.GetCurrentDate();
+            var currentDate = _dateTimeProvider.GetNextSunday();
             return GetMarketLocation(currentDate);
         }
 
